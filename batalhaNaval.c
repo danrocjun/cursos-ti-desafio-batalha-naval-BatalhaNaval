@@ -36,6 +36,16 @@ int main() {
     // 1 1 1 1 1
     // 0 0 1 0 0
 
+
+    /*
+    [Curso Ciência da Computação]
+
+    Aluno: Daniel Rocha Júnior
+    Turma: 9001
+    Matrícula: 202508049686
+    
+    */
+
  int linha = 1;
     int tabuleiro[10][10];    
     
@@ -49,13 +59,13 @@ int main() {
    
     // Posição horizontal do navio
 
-    tabuleiro[0][0]=3;
     tabuleiro[0][1]=3;
     tabuleiro[0][2]=3;
+    tabuleiro[0][3]=3;
 
-    tabuleiro[1][3]=3;
     tabuleiro[1][4]=3;
     tabuleiro[1][5]=3;
+    tabuleiro[1][6]=3;
 
     //Posição vertical do navio
 
