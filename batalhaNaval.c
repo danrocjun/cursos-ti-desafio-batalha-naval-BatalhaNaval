@@ -46,7 +46,7 @@ int main() {
     
     */
 
- int linha = 1;
+     int linha = 1;
     int tabuleiro[10][10];    
     
     //Preenchimento inicial com 0
@@ -56,16 +56,20 @@ int main() {
           tabuleiro[l][c] = 0;// preenche a matriz com zero para cada [linha,coluna]
       }
     }
-   
+
+
+
+    //[Nível Novato - 21/09/25]
+   /* 
     // Posição horizontal do navio
 
+    tabuleiro[0][0]=3;
     tabuleiro[0][1]=3;
     tabuleiro[0][2]=3;
-    tabuleiro[0][3]=3;
 
+    tabuleiro[1][3]=3;
     tabuleiro[1][4]=3;
     tabuleiro[1][5]=3;
-    tabuleiro[1][6]=3;
 
     //Posição vertical do navio
 
@@ -76,7 +80,34 @@ int main() {
     tabuleiro[2][7]=3;
     tabuleiro[3][7]=3;
     tabuleiro[4][7]=3;
+   */
 
+
+   // [Nível Aventureiro]
+
+    // Posição horizontal do navio 1
+
+    tabuleiro[0][0]=3;
+    tabuleiro[0][1]=3;
+    tabuleiro[0][2]=3;
+
+    //Posição vertical do navio 2
+
+    tabuleiro[5][8]=3;
+    tabuleiro[6][8]=3;
+    tabuleiro[7][8]=3;
+
+    //Posição diagonal do navio 3
+
+    tabuleiro[4][4]=3;
+    tabuleiro[5][5]=3;
+    tabuleiro[6][6]=3;
+
+    //Posição diagonal do navio 4
+
+    tabuleiro[5][1]=3;
+    tabuleiro[6][2]=3;
+    tabuleiro[7][3]=3;
 
     // Imprime a matriz na formatação desejada
 
@@ -96,6 +127,8 @@ int main() {
         linha++; // atualiza a identificação da linha
         
       }  
+    
+
 
 
 
