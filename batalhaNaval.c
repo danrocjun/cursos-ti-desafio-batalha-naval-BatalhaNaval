@@ -36,5 +36,58 @@ int main() {
     // 1 1 1 1 1
     // 0 0 1 0 0
 
+ int linha = 1;
+    int tabuleiro[10][10];    
+    
+    //Preenchimento inicial com 0
+
+    for (int l=0;l<10;l++){//linhas
+      for (int c=0;c<10;c++){//colunas               
+          tabuleiro[l][c] = 0;// preenche a matriz com zero para cada [linha,coluna]
+      }
+    }
+   
+    // Posição horizontal do navio
+
+    tabuleiro[0][0]=3;
+    tabuleiro[0][1]=3;
+    tabuleiro[0][2]=3;
+
+    tabuleiro[1][3]=3;
+    tabuleiro[1][4]=3;
+    tabuleiro[1][5]=3;
+
+    //Posição vertical do navio
+
+    tabuleiro[5][8]=3;
+    tabuleiro[6][8]=3;
+    tabuleiro[7][8]=3;
+
+    tabuleiro[2][7]=3;
+    tabuleiro[3][7]=3;
+    tabuleiro[4][7]=3;
+
+
+    // Imprime a matriz na formatação desejada
+
+    printf("   A B C D E F G H I J\n");// imprime as colunas
+       
+    for (int l=0;l<10;l++){//linhas   
+         
+        if (l<9){//imprime o índice das linhas do tabuleiro
+           printf(" %d ",linha);}//formatação
+           else{printf("%d ",linha);}//formatação
+
+        for (int c=0;c<10;c++){//colunas               
+          printf("%d ",tabuleiro[l][c]);// imprime a matriz 
+             
+        } 
+        printf("\n");  
+        linha++; // atualiza a identificação da linha
+        
+      }  
+
+
+
     return 0;
 }
