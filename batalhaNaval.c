@@ -45,7 +45,7 @@ int main() {
     Matrícula: 202508049686
     
     */
-  int linha = 1;
+   int linha = 1;
     int tabuleiro[10][10];    
     
     // Imprime a matriz na formatação desejada
@@ -80,74 +80,46 @@ int main() {
 
 
         // ===========================================================================================
-        //Ataque do Cone 5
+        //Ataque das habilidades
 
-        int cone = 3;
-        while (cone>=0){// abre o while do Cone
+        int ctrl = 3;
+        while (ctrl>=0){// abre o while do controle
 
-        if (cone==3){//base
-          for (int l=2, c=4;c>=0;c--){
-             tabuleiro[l][c]=5;             
-            }}cone--;
+        if (ctrl==3){
+          for (int l=2, c=4;c>=0;c--){//base do cone
+             tabuleiro[l][c]=5;}    
+              
+          for (int l=5, c=1;c==1;c--){//base do octaedro
+             tabuleiro[l][c]=6;} 
+             
+          for (int l=4, c=7;c==7;c--){// base da cruz
+             tabuleiro[l][c]=7;}         
+            }ctrl--;
 
-        if (cone==2){//intermediária
-          for (int l=1, c=3;c>=1;c--){
-             tabuleiro[l][c]=5;
-            }}cone--;
+        if (ctrl==2){//intermediária
+          for (int l=1, c=3;c>=1;c--){//intermediária do cone
+             tabuleiro[l][c]=5;}
 
-         if (cone==1){//topo
-          for (int l=0, c=2;c==2;c--){
-             tabuleiro[l][c]=5;
-            }}cone--;   
+          for (int l=4, c=2;c>=0;c--){//intermediária do octaedro
+             tabuleiro[l][c]=6;}
+             
+          for (int l=3, c=9;c>=5;c--){//intermediária da cruz
+             tabuleiro[l][c]=7;}
+          }ctrl--;
 
-        }// fecha while para o Cone
+         if (ctrl==1){
+          for (int l=0, c=2;c==2;c--){//topo do cone
+             tabuleiro[l][c]=5;}
 
-       // ==============================================================================================
+          for (int l=3, c=1;c==1;c--){//topo do octaedro
+             tabuleiro[l][c]=6;}
 
-        // Ataque da Octaedro - 6
+          for (int l=2, c=7;c==7;c--){// topo da cruz
+             tabuleiro[l][c]=7;}
 
-        int octa = 3;
-        while (octa>=0){// abre o while para o Octaedro
+            }ctrl--;   
 
-        if (octa==3){//base
-          for (int l=5, c=1;c==1;c--){
-             tabuleiro[l][c]=6;             
-            }}octa--;
-
-        if (octa==2){//intermediária
-          for (int l=4, c=2;c>=0;c--){
-             tabuleiro[l][c]=6;
-            }}octa--;
-
-         if (octa==1){//topo
-          for (int l=3, c=1;c==1;c--){
-             tabuleiro[l][c]=6;
-            }}octa--;   
-
-        }// fecha while para o Octaedro
-
-        // ============================================================================================
-        // Ataque da Cruz - 7
-
-        int cruz = 3;
-        while (cruz>=0){// abre o while para a Cruz
-
-        if (cruz==3){//base
-          for (int l=4, c=7;c==7;c--){
-             tabuleiro[l][c]=7;             
-            }}cruz--;
-
-        if (cruz==2){//intermediária
-          for (int l=3, c=9;c>=5;c--){
-             tabuleiro[l][c]=7;
-            }}cruz--;
-
-         if (cruz==1){//topo
-          for (int l=2, c=7;c==7;c--){
-             tabuleiro[l][c]=7;
-            }}cruz--;   
-
-        }// fecha while para a Cruz         
+        }// fecha while para o controle        
                   
        
 
@@ -156,7 +128,9 @@ int main() {
         } printf("\n");// linha seguinte
         linha++; // atualiza a identificação da linha
 
-      }//fecha o primeiro for  
+      }//fecha o primeiro for
+
+      
 
 
 
