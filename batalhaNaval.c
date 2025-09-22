@@ -45,73 +45,12 @@ int main() {
     Matrícula: 202508049686
     
     */
-
-     int linha = 1;
+  int linha = 1;
     int tabuleiro[10][10];    
     
-    //Preenchimento inicial com 0
-
-    for (int l=0;l<10;l++){//linhas
-      for (int c=0;c<10;c++){//colunas               
-          tabuleiro[l][c] = 0;// preenche a matriz com zero para cada [linha,coluna]
-      }
-    }
-
-
-
-    //[Nível Novato - 21/09/25]
-   /* 
-    // Posição horizontal do navio
-
-    tabuleiro[0][0]=3;
-    tabuleiro[0][1]=3;
-    tabuleiro[0][2]=3;
-
-    tabuleiro[1][3]=3;
-    tabuleiro[1][4]=3;
-    tabuleiro[1][5]=3;
-
-    //Posição vertical do navio
-
-    tabuleiro[5][8]=3;
-    tabuleiro[6][8]=3;
-    tabuleiro[7][8]=3;
-
-    tabuleiro[2][7]=3;
-    tabuleiro[3][7]=3;
-    tabuleiro[4][7]=3;
-   */
-
-
-   // [Nível Aventureiro]
-
-    // Posição horizontal do navio 1
-
-    tabuleiro[0][0]=3;
-    tabuleiro[0][1]=3;
-    tabuleiro[0][2]=3;
-
-    //Posição vertical do navio 2
-
-    tabuleiro[5][8]=3;
-    tabuleiro[6][8]=3;
-    tabuleiro[7][8]=3;
-
-    //Posição diagonal do navio 3
-
-    tabuleiro[4][4]=3;
-    tabuleiro[5][5]=3;
-    tabuleiro[6][6]=3;
-
-    //Posição diagonal do navio 4
-
-    tabuleiro[5][1]=3;
-    tabuleiro[6][2]=3;
-    tabuleiro[7][3]=3;
-
     // Imprime a matriz na formatação desejada
 
-    printf("   A B C D E F G H I J\n");// imprime as colunas
+    printf("   A B C D E F G H I J\n");// imprime a identificação das colunas no tabuleiro
        
     for (int l=0;l<10;l++){//linhas   
          
@@ -119,15 +58,105 @@ int main() {
            printf(" %d ",linha);}//formatação
            else{printf("%d ",linha);}//formatação
 
-        for (int c=0;c<10;c++){//colunas               
-          printf("%d ",tabuleiro[l][c]);// imprime a matriz 
-             
-        } 
-        printf("\n");  
-        linha++; // atualiza a identificação da linha
+        for (int c=0;c<10;c++){//preenche as colunas para cada linha definida no for anterior   
+          tabuleiro[l][c] = 0;// preenchimento inicial da matriz com zero para cada índice [linha,coluna]  
         
-      }  
-    
+
+         // Posição horizontal do navio 1
+        for (int h=7;h<10;h++){
+          tabuleiro[0][h]=1;}      
+
+         //Posição vertical do navio 2
+        for (int v=7;v<10;v++){
+          tabuleiro[v][9]=2;}        
+
+        //Posição diagonal do navio 3 - descendo
+        for (int dl=6,dc=6;dl<9;dl++,dc++){
+          tabuleiro[dl][dc]=3;} 
+
+        //Posição diagonal do navio 4 - subindo
+        for (int dl=9,dc=0;dc<3;dl--,dc++){
+          tabuleiro[dl][dc]=4;}
+
+
+        // ===========================================================================================
+        //Ataque do Cone 5
+
+        int cone = 3;
+        while (cone>=0){// abre o while do Cone
+
+        if (cone==3){//base
+          for (int l=2, c=4;c>=0;c--){
+             tabuleiro[l][c]=5;             
+            }}cone--;
+
+        if (cone==2){//intermediária
+          for (int l=1, c=3;c>=1;c--){
+             tabuleiro[l][c]=5;
+            }}cone--;
+
+         if (cone==1){//topo
+          for (int l=0, c=2;c==2;c--){
+             tabuleiro[l][c]=5;
+            }}cone--;   
+
+        }// fecha while para o Cone
+
+       // ==============================================================================================
+
+        // Ataque da Octaedro - 6
+
+        int octa = 3;
+        while (octa>=0){// abre o while para o Octaedro
+
+        if (octa==3){//base
+          for (int l=5, c=1;c==1;c--){
+             tabuleiro[l][c]=6;             
+            }}octa--;
+
+        if (octa==2){//intermediária
+          for (int l=4, c=2;c>=0;c--){
+             tabuleiro[l][c]=6;
+            }}octa--;
+
+         if (octa==1){//topo
+          for (int l=3, c=1;c==1;c--){
+             tabuleiro[l][c]=6;
+            }}octa--;   
+
+        }// fecha while para o Octaedro
+
+        // ============================================================================================
+        // Ataque da Cruz - 7
+
+        int cruz = 3;
+        while (cruz>=0){// abre o while para a Cruz
+
+        if (cruz==3){//base
+          for (int l=4, c=7;c==7;c--){
+             tabuleiro[l][c]=7;             
+            }}cruz--;
+
+        if (cruz==2){//intermediária
+          for (int l=3, c=9;c>=5;c--){
+             tabuleiro[l][c]=7;
+            }}cruz--;
+
+         if (cruz==1){//topo
+          for (int l=2, c=7;c==7;c--){
+             tabuleiro[l][c]=7;
+            }}cruz--;   
+
+        }// fecha while para a Cruz         
+                  
+       
+
+        printf("%d ",tabuleiro[l][c]);// imprime a matriz 
+             
+        } printf("\n");// linha seguinte
+        linha++; // atualiza a identificação da linha
+
+      }//fecha o primeiro for  
 
 
 
